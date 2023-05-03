@@ -19,7 +19,7 @@ import xlsxwriter
 dev = True              # Development mode
 usbPort = "editMe"      # Your USB port, obtain using port_scan()
 
-calibrating = True
+calibrating = True      #If calibrating is true then the calibration part of the code will run which wil return values a and b with which a the test can be run
 
 a = 0
 b = 0
@@ -75,10 +75,10 @@ if dev:
             time_of_flight = line.split(" ")[3]
 
             if calibrating:
-                if int(load_cell_data) > 0:
-                    worksheet.write(row, col, int(appliedLoad))
-                    worksheet.write(row, col+1, int(load_cell_data))
-                    row += 1
+                if int(load_cell_data) > 0:                                    #load cell data with values below zero are disregarded and not put itno the excel
+                    worksheet.write(row, col, int(appliedLoad))                #Applied load previously entered is put into the row and col specified  
+                    worksheet.write(row, col+1, int(load_cell_data))           #Idem for the load cell data  
+                    row += 1                                                   #row is increased by one so the next value is printed on the next line 
             else:
 
                 load = load_cell_data*a + b
