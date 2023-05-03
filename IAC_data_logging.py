@@ -21,7 +21,7 @@ usbPort = "editMe"      # Your USB port, obtain using port_scan()
 
 calibrating = True      #If calibrating is true then the calibration part of the code will run which wil return values a and b with which a the test can be run
 
-a = 0
+a = 0                   #both variables a and b used to calculate the applied load are intially set as 0, but can later be changed after callibration
 b = 0
 
 
